@@ -214,7 +214,21 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+// Configuración especial para Vercel:
+const swaggerOptionsUI = {
+  customSiteTitle: "API ROMI Docs",
+  customCss: '.swagger-ui .topbar { display: none }',
+  customfavIcon: '/public/favicon.ico'
+};
+
+app.use(
+  "/api-docs",
+  swaggerUi.serveFiles(swaggerDocs, swaggerOptionsUI),
+  (req, res) => {
+    res.send(swaggerUi.generateHTML(swaggerDocs, swaggerOptionsUI));
+  }
+);
 
 // --- Rutas ---
 

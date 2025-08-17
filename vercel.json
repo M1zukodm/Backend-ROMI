@@ -4,24 +4,15 @@
     {
       "src": "server.js",
       "use": "@vercel/node",
-      "config": { 
-        "includeFiles": ["public/**"]
+      "config": {
+        "includeFiles": ["public/**", "node_modules/swagger-ui-dist/**"]
       }
     }
   ],
   "routes": [
     {
-      "src": "/api-docs",
+      "src": "/api-docs(/?.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/api-docs/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "server.js",
-      "methods": ["GET", "POST"]
     },
     {
       "src": "/(.*)",
