@@ -1,0 +1,11 @@
+# Credenciales
+firebase-credenciales.json
+.env
+
+# Dependencias
+node_modules/
+
+# Entornos
+.DS_Store
+.idea/
+.vscode/
