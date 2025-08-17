@@ -157,15 +157,20 @@ const swaggerOptions = {
       description: "API para gestionar síntomas y registrar pacientes con recomendaciones médicas.",
     },
     servers: [
-      { url: "https://backend-romi.vercel.app", description: "Producción" }, // URL de producción
-      { url: "http://localhost:3000", description: "Entorno local" }                   //  URL de desarrollo
+      {
+        url:
+          process.env.NODE_ENV === "production"
+            ? "https://backend-romi.vercel.app"
+            : "http://localhost:3000",
+      },
     ],
   },
-  apis: ["./server.js"],
+  apis: [path.join(__dirname, "./server.js")],
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs, { explorer: true }));
+
 
 // --- Rutas ---
 
