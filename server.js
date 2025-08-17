@@ -5,7 +5,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const path = require("path");
 const admin = require("firebase-admin");
-const serviceAccount = require("./firebase-credenciales.json"); 
+
 
 require('dotenv').config();
 
