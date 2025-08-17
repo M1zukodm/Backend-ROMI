@@ -157,6 +157,56 @@ const swaggerOptions = {
       description: "API para gestionar síntomas y registrar pacientes con recomendaciones médicas.",
     },
     servers: [{ url: "http://localhost:3000" }],
+    components: {
+      schemas: {
+        Symptom: {
+          type: "object",
+          properties: {
+            id: {
+              type: "integer",
+              example: 1
+            },
+            name: {
+              type: "string",
+              example: "Dolor de cabeza"
+            },
+            categories: {
+              type: "array",
+              items: {
+                type: "string"
+              },
+              example: ["Neurológico"]
+            },
+            solutions: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  painLevel: {
+                    type: "array",
+                    items: {
+                      type: "integer"
+                    },
+                    example: [1, 3]
+                  },
+                  recommendations: {
+                    type: "array",
+                    items: {
+                      type: "string"
+                    },
+                    example: ["Descansar", "Tomar agua"]
+                  },
+                  alert: {
+                    type: "boolean",
+                    example: false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   },
   apis: ["./server.js"],
 };
