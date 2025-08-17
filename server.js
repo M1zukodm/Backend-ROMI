@@ -16,17 +16,20 @@ if (!process.env.FIREBASE_PROJECT_ID ||
 }
 
 // Configuración segura para Firebase
-const firebaseConfig = {
-  credential: admin.credential.cert({
-    projectId: process.env.FIREBASE_PROJECT_ID.trim(),
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL.trim(),
-    privateKey: process.env.FIREBASE_PRIVATE_KEY
-      .replace(/\\n/g, '\n')  // Convierte \n textuales a saltos reales
-      .replace(/"/g, '')       // Elimina comillas si existen
-  }),
-  databaseURL: `https://${process.env.FIREBASE_PROJECT_ID.trim()}.firebaseio.com`
-};
-
+try {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    }),
+    databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`
+  });
+  console.log("🔥 Firebase inicializado correctamente");
+} catch (error) {
+  console.error("❌ Error al iniciar Firebase:", error.message);
+  process.exit(1);
+}
 admin.initializeApp(firebaseConfig);
 
 const db = admin.firestore();
