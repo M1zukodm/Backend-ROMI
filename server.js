@@ -280,43 +280,6 @@ app.get("/sintomas/:id", (req, res) => {
   res.json(symptom);
 });
 
-/**
- * @swagger
- * /sintomas/buscar:
- *   get:
- *     summary: Buscar síntomas por nombre
- *     parameters:
- *       - name: nombre
- *         in: query
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Síntomas encontrados
- *       404:
- *         description: No se encontraron síntomas
- */
-app.get("/sintomas/buscar", (req, res) => {
-  const nameQuery = req.query.nombre?.trim(); // Usamos optional chaining y trim()
-  
-  if (!nameQuery) {
-    return res.status(400).json({ error: "Debes enviar un parámetro 'nombre'" });
-  }
-
-  const searchTerm = nameQuery.toLowerCase();
-  
-  const results = data.symptoms.filter(s =>
-    s.name.toLowerCase().includes(searchTerm) || // Coincidencia en nombre
-    s.categories.some(cat => cat.toLowerCase().includes(searchTerm)) // O en categorías
-  );
-
-  if (results.length === 0) {
-    return res.status(404).json({ error: `No se encontraron síntomas para "${nameQuery}"` });
-  }
-
-  res.json(results);
-});
 
 /**
  * @swagger
