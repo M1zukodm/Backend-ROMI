@@ -157,7 +157,7 @@ const swaggerOptions = {
       description: "API para gestionar síntomas y registrar pacientes con recomendaciones médicas.",
     },
     servers: [
-      { url: "https://backend-romi.vercel.app/api-docs/", description: "Producción (Vercel)" }, // URL de producción
+      { url: "https://backend-romi.vercel.app", description: "Producción" }, // URL de producción
       { url: "http://localhost:3000", description: "Entorno local" }                   //  URL de desarrollo
     ],
   },
@@ -165,7 +165,25 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+// Configuración especial para Vercel
+app.use('/api-docs', swaggerUi.serve, (req, res, next) => {
+  // Forzar la URL base correcta en producción
+  const swaggerHtml = swaggerUi.generateHTML(swaggerDocs, {
+    customSiteTitle: "ROMI API Docs",
+    swaggerOptions: {
+      url: '/api-docs/swagger.json', // Ruta relativa al JSON
+      persistAuthorization: true
+    }
+  });
+  res.send(swaggerHtml);
+});
+
+// Ruta para el JSON de Swagger (requerida por la UI)
+app.get('/api-docs/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerDocs);
+});
 
 // --- Rutas ---
 
