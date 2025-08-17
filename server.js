@@ -165,25 +165,7 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-
-// Configuración especial para Vercel
-app.use('/api-docs', swaggerUi.serve, (req, res, next) => {
-  // Forzar la URL base correcta en producción
-  const swaggerHtml = swaggerUi.generateHTML(swaggerDocs, {
-    customSiteTitle: "ROMI API Docs",
-    swaggerOptions: {
-      url: '/api-docs/swagger.json', // Ruta relativa al JSON
-      persistAuthorization: true
-    }
-  });
-  res.send(swaggerHtml);
-});
-
-// Ruta para el JSON de Swagger (requerida por la UI)
-app.get('/api-docs/swagger.json', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerDocs);
-});
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // --- Rutas ---
 
