@@ -157,7 +157,7 @@ const swaggerOptions = {
       description: "API para gestionar síntomas y registrar pacientes con recomendaciones médicas.",
     },
     servers: [
-      { url: "https://backend-romi.vercel.app", description: "Producción (Vercel)" }, // URL de producción
+      { url: "https://backend-romi.vercel.app/api-docs/", description: "Producción (Vercel)" }, // URL de producción
       { url: "http://localhost:3000", description: "Entorno local" }                   //  URL de desarrollo
     ],
   },
