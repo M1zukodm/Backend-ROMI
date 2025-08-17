@@ -39,6 +39,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+// Comprobar entorno
+console.log("🌍 NODE_ENV:", process.env.NODE_ENV);
+
 //Datos de los sintomas
 let data = {
   symptoms: [
