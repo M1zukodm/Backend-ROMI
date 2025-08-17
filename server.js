@@ -39,8 +39,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-
-
 //Datos de los sintomas
 let data = {
   symptoms: [
@@ -158,21 +156,13 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "API para gestionar síntomas y registrar pacientes con recomendaciones médicas.",
     },
-    servers: [
-      {
-        url:
-          process.env.NODE_ENV === "production"
-            ? "https://backend-romi.vercel.app"
-            : "http://localhost:3000",
-      },
-    ],
+    servers: [{ url: "http://localhost:3000" }],
   },
-  apis: [path.join(__dirname, "./server.js")],
+  apis: ["./server.js"],
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs, { explorer: true }));
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // --- Rutas ---
 
