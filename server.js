@@ -30,7 +30,7 @@ try {
   console.error("❌ Error al iniciar Firebase:", error.message);
   process.exit(1);
 }
-admin.initializeApp(firebaseConfig);
+
 
 const db = admin.firestore();
 
