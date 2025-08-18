@@ -382,7 +382,7 @@ app.post("/pacientes", async (req, res) => {
       nombre,
       sintomaId,
       nivelDolor,
-      fecha: admin.firestore.FieldValue.serverTimestamp(),
+      fecha: data.fecha.toDate().toISOString(),
       sintomaNombre: symptom.name // Guardamos el nombre para fácil acceso
     });
 
