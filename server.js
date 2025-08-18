@@ -280,6 +280,44 @@ app.get("/sintomas/:id", (req, res) => {
   res.json(symptom);
 });
 
+/**
+ * @swagger
+ * /sintomas/buscar/{nombre}:
+ *   get:
+ *     summary: Buscar síntomas por nombre
+ *     description: Retorna todos los síntomas que coincidan parcial o totalmente con el nombre proporcionado
+ *     parameters:
+ *       - name: nombre
+ *         in: path
+ *         required: true
+ *         description: Nombre o parte del nombre del síntoma a buscar
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Lista de síntomas encontrados
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Symptom'
+ *       404:
+ *         description: No se encontraron síntomas con ese nombre
+ */
+app.get("/sintomas/buscar/:nombre", (req, res) => {
+  const nombreBuscado = req.params.nombre.toLowerCase();
+  
+  const sintomasEncontrados = data.symptoms.filter(symptom => 
+    symptom.name.toLowerCase().includes(nombreBuscado)
+  );
+
+  if (sintomasEncontrados.length === 0) {
+    return res.status(404).json({ error: "No se encontraron síntomas con ese nombre" });
+  }
+
+  res.json(sintomasEncontrados);
+});
 
 /**
  * @swagger
