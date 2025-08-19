@@ -47,9 +47,9 @@ let data = {
       name: "Dolor de cabeza",
       categories: ["Neurológico"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Descansar", "Tomar agua"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Paracetamol", "Evitar luces brillantes"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Urgencias médicas inmediatas"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Descansar en lugar tranquilo", "Tomar agua abundante", "Aplicar compresas frías en la frente"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Paracetamol según indicaciones", "Evitar luces brillantes", "Masajear sienes suavemente", "Descansar en habitación oscura"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Urgencias médicas inmediatas", "No automedicarse", "Buscar ayuda profesional"], alert: true }
       ]
     },
     {
@@ -57,9 +57,9 @@ let data = {
       name: "Fiebre",
       categories: ["General"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Líquidos abundantes", "Reposo"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Baño tibio", "Antipirético"], alert: true },
-        { painLevel: [8, 10], recommendations: ["Urgencias médicas"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Líquidos abundantes", "Reposo en cama", "Ropa ligera y fresca"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Baño tibio", "Antipirético según peso", "Monitorear temperatura", "Evitar abrigarse en exceso"], alert: true },
+        { painLevel: [8, 10], recommendations: ["Urgencias médicas", "Hidratación inmediata", "No dejar solo al paciente"], alert: true }
       ]
     },
     {
@@ -67,9 +67,9 @@ let data = {
       name: "Dolor abdominal",
       categories: ["Digestivo"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Descansar", "Evitar comidas pesadas"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Consultar médico si persiste"], alert: true },
-        { painLevel: [8, 10], recommendations: ["Urgencias, posible apendicitis"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Descansar acostado", "Evitar comidas pesadas", "Aplicar calor suave en el abdomen"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Consultar médico si persiste", "Evitar medicamentos sin prescripción", "Dieta blanda", "Monitorear otros síntomas"], alert: true },
+        { painLevel: [8, 10], recommendations: ["Urgencias, posible apendicitis", "No tomar analgésicos", "Buscar atención médica inmediata"], alert: true }
       ]
     },
     {
@@ -77,9 +77,9 @@ let data = {
       name: "Tos",
       categories: ["Respiratorio"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Miel con limón", "Líquidos tibios"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Jarabe para la tos"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Consulta médica inmediata"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Miel con limón", "Líquidos tibios", "Mantener ambiente húmedo"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Jarabe para la tos", "Evitar irritantes como humo", "Elevar la cabeza al dormir", "Gárgaras con agua salada"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Consulta médica inmediata", "Evaluar dificultad respiratoria", "No suprimir tos con sangre"], alert: true }
       ]
     },
     {
@@ -87,9 +87,9 @@ let data = {
       name: "Dolor de espalda",
       categories: ["Músculo-esquelético"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Estiramientos suaves", "Reposo"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Antiinflamatorio suave"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Consulta médica"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Estiramientos suaves", "Reposo moderado", "Aplicar calor local"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Antiinflamatorio suave", "Fisioterapia básica", "Evitar cargar peso", "Mantener postura correcta"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Consulta médica urgente", "Evaluar movilidad", "Descartar lesión grave"], alert: true }
       ]
     },
     {
@@ -97,9 +97,9 @@ let data = {
       name: "Mareos",
       categories: ["Neurológico"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Sentarse", "Tomar agua"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Consultar médico si repite"], alert: true },
-        { painLevel: [8, 10], recommendations: ["Urgencias (posible vértigo)"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Sentarse inmediatamente", "Tomar agua", "Evitar movimientos bruscos"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Consultar médico si se repite", "Revisar presión arterial", "Evitar conducir", "Descansar en posición horizontal"], alert: true },
+        { painLevel: [8, 10], recommendations: ["Urgencias (posible vértigo)", "Acompañamiento constante", "Evaluación neurológica"], alert: true }
       ]
     },
     {
@@ -107,9 +107,9 @@ let data = {
       name: "Dificultad para respirar",
       categories: ["Respiratorio"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Evitar esfuerzo físico"], alert: true },
-        { painLevel: [4, 7], recommendations: ["Uso de inhalador (si aplica)"], alert: true },
-        { painLevel: [8, 10], recommendations: ["Urgencias inmediatas"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Evitar esfuerzo físico", "Respiración profunda y lenta", "Posición sentada"], alert: true },
+        { painLevel: [4, 7], recommendations: ["Uso de inhalador (si aplica)", "Ambiente ventilado", "Evitar alérgenos", "Relajación"], alert: true },
+        { painLevel: [8, 10], recommendations: ["Urgencias inmediatas", "Llamar ambulancia", "No dejar solo al paciente"], alert: true }
       ]
     },
     {
@@ -117,9 +117,9 @@ let data = {
       name: "Dolor de garganta",
       categories: ["Respiratorio"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Gárgaras con agua tibia", "Miel"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Pastillas para la garganta"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Consulta médica (posible infección)"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Gárgaras con agua tibia", "Miel natural", "Evitar alimentos irritantes"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Pastillas para la garganta", "Líquidos tibios frecuentes", "Humidificar ambiente", "Descansar la voz"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Consulta médica (posible infección)", "Evaluación de fiebre", "Antibióticos si es necesario"], alert: true }
       ]
     },
     {
@@ -127,9 +127,9 @@ let data = {
       name: "Náuseas",
       categories: ["Digestivo"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Beber agua en sorbos", "Reposo"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Infusión de jengibre"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Urgencias (posible intoxicación)"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Beber agua en sorbos pequeños", "Reposo", "Evitar olores fuertes"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Infusión de jengibre", "Comida blanda", "Evitar movimientos bruscos", "Ambiente fresco"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Urgencias (posible intoxicación)", "Hidratación inmediata", "Evaluación médica urgente"], alert: true }
       ]
     },
     {
@@ -137,9 +137,9 @@ let data = {
       name: "Insomnio",
       categories: ["Neurológico"],
       solutions: [
-        { painLevel: [1, 3], recommendations: ["Rutina de sueño regular"], alert: false },
-        { painLevel: [4, 7], recommendations: ["Té relajante", "Evitar pantallas"], alert: false },
-        { painLevel: [8, 10], recommendations: ["Consulta médica (posible ansiedad)"], alert: true }
+        { painLevel: [1, 3], recommendations: ["Rutina de sueño regular", "Evitar cafeína por la tarde", "Ambiente oscuro y silencioso"], alert: false },
+        { painLevel: [4, 7], recommendations: ["Té relajante", "Evitar pantallas antes de dormir", "Ejercicio durante el día", "Técnicas de relajación"], alert: false },
+        { painLevel: [8, 10], recommendations: ["Consulta médica (posible ansiedad)", "Evaluación psicológica", "Descartar trastornos del sueño"], alert: true }
       ]
     }
   ],
