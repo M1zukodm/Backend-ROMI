@@ -343,6 +343,73 @@ app.get("/pacientes", async (req, res) => {
 
 /**
  * @swagger
+ * /sintomas:
+ *   post:
+ *     summary: Obtener síntomas con filtros (usando POST como GET)
+ *     description: Permite obtener síntomas aplicando filtros mediante parámetros en el body
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               categoria:
+ *                 type: string
+ *                 description: Filtrar por categoría específica
+ *                 example: "Neurológico"
+ *               nombre:
+ *                 type: string
+ *                 description: Filtrar por nombre (búsqueda parcial)
+ *                 example: "dolor"
+ *               ids:
+ *                 type: array
+ *                 items:
+ *                   type: integer
+ *                 description: Filtrar por IDs específicos
+ *                 example: [1, 2, 3]
+ *     responses:
+ *       200:
+ *         description: Lista de síntomas filtrados
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Symptom'
+ */
+app.post("/sintomas", (req, res) => {
+  const { categoria, nombre, ids } = req.body;
+  let filteredSymptoms = data.symptoms;
+  
+  // Filtrar por categoría si se proporciona
+  if (categoria) {
+    filteredSymptoms = filteredSymptoms.filter(s => 
+      s.categories.some(cat => 
+        cat.toLowerCase().includes(categoria.toLowerCase())
+      )
+    );
+  }
+  
+  // Filtrar por nombre si se proporciona
+  if (nombre) {
+    filteredSymptoms = filteredSymptoms.filter(s => 
+      s.name.toLowerCase().includes(nombre.toLowerCase())
+    );
+  }
+  
+  // Filtrar por IDs si se proporciona
+  if (ids && Array.isArray(ids)) {
+    filteredSymptoms = filteredSymptoms.filter(s => 
+      ids.includes(s.id)
+    );
+  }
+  
+  res.json(filteredSymptoms);
+});
+
+/**
+ * @swagger
  * /pacientes:
  *   post:
  *     summary: Registrar un nuevo paciente
